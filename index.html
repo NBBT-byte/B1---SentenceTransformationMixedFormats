@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PET sentence transformation practice (B1)</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--text:#1d2433;--muted:#5d6678;--border:#cfd5e3;--accent:#3b5bdb;--accent-t:#fff;--zone:#f4f6fc;--ok:#1b7a43;--okbg:#e3f6ea;--bad:#b42318;--badbg:#fde8e5;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12151c;--card:#1b202b;--text:#e8ebf3;--muted:#a1a9ba;--border:#37405a;--accent:#7c9bff;--accent-t:#10151f;--zone:#232a3a;--ok:#7fe0a5;--okbg:#17382a;--bad:#ff9a8f;--badbg:#44211e}}
+:root[data-theme="dark"]{--bg:#12151c;--card:#1b202b;--text:#e8ebf3;--muted:#a1a9ba;--border:#37405a;--accent:#7c9bff;--accent-t:#10151f;--zone:#232a3a;--ok:#7fe0a5;--okbg:#17382a;--bad:#ff9a8f;--badbg:#44211e}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+main{max-width:840px;margin:0 auto;padding:20px 16px 40px}
+h1{font-size:1.5rem;margin:0 0 12px}
+h2{font-size:1.25rem;margin:0 0 6px;color:var(--accent)}
+h3{margin:18px 0 6px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.tabs button{background:var(--card);color:var(--text);border:1px solid var(--border)}
+.tabs button.on{background:var(--accent);color:var(--accent-t);border-color:var(--accent)}
+.tabs small{margin-left:6px;font-weight:600}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px 18px}
+.ins{color:var(--muted);margin:0 0 10px}
+.q{padding:8px 0;border-bottom:1px solid var(--border)}
+.q p{margin:2px 0}
+.k2{line-height:2.3}
+.op{display:block;padding:6px 10px;margin:5px 0;border:1px solid var(--border);border-radius:8px;cursor:pointer;background:var(--zone)}
+.op.ok{border-color:var(--ok);background:var(--okbg);color:var(--ok)}
+.op.bad{border-color:var(--bad);background:var(--badbg);color:var(--bad)}
+input,select{font:inherit;padding:3px 6px;margin:0 3px;border-radius:6px;border:1px solid var(--border);background:var(--zone);color:var(--text)}
+input[type=text]{width:7.6em;text-align:center}
+input.wide{width:min(30em,100%);text-align:left}
+input[type=radio]{margin:0 6px 0 0;padding:0}
+.base{font-size:.85rem;font-weight:700;color:var(--accent);text-decoration:underline;text-underline-offset:3px;margin-left:4px}
+.ok{border-color:var(--ok)}
+.bad{border-color:var(--bad)}
+input.ok,select.ok{background:var(--okbg);color:var(--ok)}
+input.bad,select.bad{background:var(--badbg);color:var(--bad)}
+button{font:inherit;min-height:40px;padding:0 16px;border-radius:8px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-t);cursor:pointer}
+button.sec{background:transparent;color:var(--accent)}
+button:disabled{opacity:.4;cursor:default}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.score{font-weight:700;font-size:1.1rem;margin:18px 0 8px}
+.it{border-left:4px solid var(--border);background:var(--zone);border-radius:8px;padding:8px 12px;margin-bottom:8px}
+.it.g{border-left-color:var(--ok)}
+.it.w{border-left-color:var(--bad)}
+.it p{margin:2px 0}
+.why{color:var(--muted);font-size:.95rem}
+.nav{display:flex;justify-content:space-between;gap:8px;margin-top:18px;padding-top:14px;border-top:1px solid var(--border)}
+.start{text-align:center;padding:28px 20px 30px}
+.start h2{font-size:1.5rem}
+.start ul{text-align:left;max-width:540px;margin:14px auto;padding-left:22px}
+.start li{margin:4px 0}
+.big{min-height:46px;padding:0 32px;font-size:1.05rem;margin-top:10px}
+</style>
+</head>
+<body>
+<main>
+<h1>PET sentence transformation practice</h1>
+<section class="card start" id="start">
+<h2>B1 grammar workout</h2>
+<p class="ins">Twelve sets of five sentences, practised in five different formats</p>
+<ul>
+<li><b>Section 1 · Set 1:</b> choose the correct sentence</li>
+<li><b>Section 2 · Set 3:</b> fill in the missing word</li>
+<li><b>Section 3 · Set 5:</b> choose the missing word or phrase</li>
+<li><b>Section 4 · Set 7:</b> change the form of the word</li>
+<li><b>Section 5 · Sets 9–10:</b> rewrite the sentences using the word given</li>
+<li><b>Extra section:</b> 30 more questions from the other sets, unlocked when you have submitted sections 1 to 5</li>
+</ul>
+<p class="ins">Do sections 1 to 5 in any order and move between them whenever you like. Press Submit in a section to see your score, the correct answers and the grammar behind each one. Use Try again to redo a section.</p>
+<button class="big" id="go">Start</button>
+</section>
+<div class="tabs" id="tabs"></div>
+<div id="app"></div>
+</main>
+<script>
+const R={
+ss:"So and such mean the same here: so + adjective + that (The day was so hot that…), such + (a/an) + adjective + noun + that (It was such a hot day that…).",
+tooen:"Too + adjective means the same as not + opposite adjective + enough (too hot = not cool enough). Enough comes after the adjective.",
+asas:"A comparison can be reversed with not as … as: A is taller than B = B isn’t as tall as A. Always use as … as, never as … than.",
+same:"Same ↔ as … as: the same age as = as old as; the same height as = as tall as.",
+rs:"Reported statement: said (that) + subject + verb one tense back (am making → was making, have lost → had lost, went → had gone). Pronouns change too (I → he/she, we → they).",
+rq:"Reported yes/no question: asked + (person) + if + subject + verb in normal word order. The tense goes one step back (is → was, can → could, do you want → wanted, have finished → had finished).",
+ps:"Passive: be + past participle (+ by + agent). Keep the tense of be: is/are (present simple), was/were (past simple), has/have been (present perfect), is/are being (present continuous).",
+sup:"Superlative: the + adjective + -est, or the most/best/worst + noun. “Runs faster than anyone else” = the fastest runner; “never read such a bad book” = the worst book I have ever read."};
+const S1=[
+["It was such a boring lesson that I nearly fell asleep.",["The lesson was so boring that I nearly fell asleep.","The lesson was such boring that I nearly fell asleep.","The lesson was so boring than I nearly fell asleep."],0,"ss"],
+["My sister is taller than my brother.",["My brother isn’t as taller as my sister.","My brother isn’t so tall than my sister.","My brother isn’t as tall as my sister."],2,"asas"],
+["“I’m making dinner for my parents,” said Ben.",["Ben told he was making dinner for his parents.","Ben said he was making dinner for his parents.","Ben said he making dinner for his parents."],1,"rs"],
+["The workers painted the school last summer.",["The school painted by the workers last summer.","The school was paint by the workers last summer.","The school was painted by the workers last summer."],2,"ps"],
+["The water was too cold for us to swim in.",["The water wasn’t warm enough for us to swim in.","The water wasn’t enough warm for us to swim in.","The water wasn’t warm too for us to swim in."],0,"tooen"]];
+const S2=[
+["“I’ve lost my keys,” said Mia.",["Mia told she had lost her keys.","Mia said she had lost her keys.","Mia said she have lost her keys."],1,"rs"],
+["It was such a hot day that we stayed inside.",["The day was so hot that we stayed inside.","The day was such hot that we stayed inside.","The day was so hot what we stayed inside."],0,"ss"],
+["This bag is more expensive than that one.",["That bag isn’t so expensive than this one.","That bag isn’t as expensive than this one.","That bag isn’t as expensive as this one."],2,"asas"],
+["The girl is too short to reach the top shelf.",["The girl isn’t enough tall to reach the top shelf.","The girl isn’t tall enough to reach the top shelf.","The girl isn’t tall too to reach the top shelf."],1,"tooen"],
+["A famous artist painted this picture.",["This picture was painted from a famous artist.","This picture painted by a famous artist.","This picture was painted by a famous artist."],2,"ps"]];
+const S3=[
+["“We are visiting our grandparents,” said Liam.","Liam said they","visiting their grandparents.",["were"],"rs"],
+["The soup was too hot to eat.","The soup wasn’t cool","to eat.",["enough"],"tooen"],
+["Max runs faster than anyone else in his class.","Max is the","runner in his class.",["fastest"],"sup"],
+["The council is building a new bridge in the town.","A new bridge is","built by the council in the town.",["being"],"ps"],
+["Peter is older than Dave.","Dave isn’t as old","Peter.",["as"],"asas"]];
+const S4=[
+["“I bought my shoes in Italy,” said Nina.","Nina said she","bought her shoes in Italy.",["had"],"rs"],
+["It was such an easy exam that everyone passed.","The exam was","easy that everyone passed.",["so"],"ss"],
+["The room is too small for ten people.","The room isn’t","enough for ten people.",["big"],"tooen"],
+["Tom plays the guitar better than Jack.","Jack doesn’t play the guitar as","as Tom.",["well"],"asas"],
+["The cleaners clean the classrooms every evening.","The classrooms are","by the cleaners every evening.",["cleaned"],"ps"]];
+const S5=[
+["“Are you hungry?” Mum asked me.","Mum asked me if I","hungry.",["am","was","were","be"],1,"rq"],
+["The box was too heavy for me to carry.","The box wasn’t","enough for me to carry.",["light","lighter","lightly","lightest"],0,"tooen"],
+["Anna swims faster than anyone else in her team.","Anna is the fastest","in her team.",["swim","swims","swimmer","swimming"],2,"sup"],
+["The club has sold all the tickets.","All the tickets have","sold by the club.",["be","been","being","was"],1,"ps"],
+["I have never eaten such a good pizza.","This is the best pizza I have","eaten.",["ever","never","yet","already"],0,"sup"]];
+const S6=[
+["The weather was so bad that we cancelled the trip.","It was","bad weather that we cancelled the trip.",["so","such","too","very"],1,"ss"],
+["The ladder is too short to reach the window.","The ladder isn’t long","to reach the window.",["too","enough","so","such"],1,"tooen"],
+["Lisa’s room is bigger than Tina’s.","Tina’s room isn’t as big","Lisa’s.",["than","as","that","like"],1,"asas"],
+["A police officer is questioning my cousin.","My cousin is being","by a police officer.",["question","questioning","questioned","questions"],2,"ps"],
+["“We went to Spain on holiday,” said Ali.","Ali said they","gone to Spain on holiday.",["have","had","has","were"],1,"rs"]];
+const S7=[
+["“Is your brother at home?” Sam asked me.","Sam asked me if my brother","at home.","BE",["was"],"rq","Past simple of be (reported question)."],
+["I have never read such a bad book.","This is the","book I have ever read.","BAD",["worst"],"sup","Superlative of bad (irregular)."],
+["The music was so loud that nobody could talk.","It was such loud music that nobody","talk.","CAN",["could"],"ss","Past simple of can."],
+["Her husband cooks dinner every evening.","Dinner is","by her husband every evening.","COOK",["cooked"],"ps","Past participle after is."],
+["My uncle is older than my aunt.","My aunt isn’t as","as my uncle.","OLDER",["old"],"asas","Base form of the adjective between as … as (older → old)."]];
+const S8=[
+["My little sister is too young to ride a bike.","My little sister isn’t","enough to ride a bike.","OLDER",["old"],"tooen","Base form of the adjective before enough (older → old)."],
+["The lesson was so interesting that we didn’t want to leave.","It was such an","lesson that we didn’t want to leave.","INTEREST",["interesting"],"ss","Adjective from interest (interest → interesting)."],
+["My sister is the same height as me.","I am as","as my sister.","HEIGHT",["tall"],"same","Adjective that goes with height (height → tall)."],
+["Many tourists visit the museum every year.","The museum is","by many tourists every year.","VISIT",["visited"],"ps","Past participle after is."],
+["“I’m learning to drive,” said Dan.","Dan said he was","to drive.","LEARN",["learning"],"rs","Past continuous: was + -ing form."]];
+const S9=[
+["“Can you swim?” the lifeguard asked Paul.","The lifeguard asked",["Paul if he could swim."],"rq","if"],
+["It was such a funny story that we couldn’t stop laughing.","The story",["was so funny that we couldn’t stop laughing."],"ss","so"],
+["The new shop is bigger than the old one.","The old shop",["isn’t as big as the new one."],"asas","as"],
+["The firefighters saved the cat.","The cat",["was saved by the firefighters."],"ps","by"],
+["Lucy runs faster than everyone else in the team.","Lucy",["is the fastest runner in the team."],"sup","fastest"]];
+const S10=[
+["The coffee was too hot for me to drink.","The coffee",["wasn’t cool enough for me to drink."],"tooen","cool"],
+["My sister is the same age as my cousin.","My cousin",["is as old as my sister."],"same","as"],
+["It was such a long walk that we were exhausted.","The walk",["was so long that we were exhausted."],"ss","so"],
+["A famous chef is cooking the meal.","The meal",["is being cooked by a famous chef."],"ps","by"],
+["“Do you want a drink?” the waiter asked us.","The waiter asked",["us if we wanted a drink."],"rq","if"]];
+const S11=[
+["“I’m going to the cinema with my friends,” said Emma.","Emma said",["she was going to the cinema with her friends.","that she was going to the cinema with her friends."],"rs","she"],
+["The shoes were too small for me to wear.","The shoes",["weren’t big enough for me to wear."],"tooen","big"],
+["Joe has read more books than Sam.","Sam",["hasn’t read as many books as Joe.","hasn’t read as many books as Joe has."],"asas","as"],
+["The children have painted this wall.","This wall",["has been painted by the children."],"ps","by"],
+["I have never visited such an interesting museum.","This",["is the most interesting museum I have ever visited."],"sup","most"]];
+const S12=[
+["It was such a cold night that we lit a fire.","The night",["was so cold that we lit a fire."],"ss","so"],
+["Our team is too weak to win the cup.","Our team",["isn’t strong enough to win the cup."],"tooen","strong"],
+["Mike is more careful than his brother.","His brother",["isn’t as careful as Mike."],"asas","as"],
+["Workers are repairing the road.","The road",["is being repaired by workers."],"ps","by"],
+["“Have you finished?” the teacher asked the students.","The teacher asked",["the students if they had finished."],"rq","if"]];
+const RWI="Rewrite the sentences so that they mean the same as the original. The beginning is given; also use the word in brackets and do not change it. Other changes will be necessary. Rewrite all direct speech as reported speech. Your answer is compared with the accepted versions: if yours is different but you think it is correct, check it against the model answer.";
+const SEC=[
+{t:"Section 1 · Set 1: Choose the correct sentence",tab:"Choose",i:"For each sentence, choose the transformation (A, B or C) that is grammatically correct and keeps the meaning of the original. Only one is correct.",sets:[{n:"Set 1",k:"mc3",qs:S1}]},
+{t:"Section 2 · Set 3: Fill in the missing word",tab:"One word",i:"Complete the transformed sentence with ONE word.",sets:[{n:"Set 3",k:"gap",qs:S3}]},
+{t:"Section 3 · Set 5: Choose the missing word or phrase",tab:"Options",i:"Complete the transformed sentence with the correct option.",sets:[{n:"Set 5",k:"mc4",qs:S5}]},
+{t:"Section 4 · Set 7: Change the form of the word",tab:"Word form",i:"Complete the transformed sentence with the correct form of the word in capitals. You may need to change the verb form or the word class.",sets:[{n:"Set 7",k:"wf",qs:S7}]},
+{t:"Section 5 · Sets 9–10: Rewrite the sentences",tab:"Rewrite",i:RWI,sets:[{n:"Set 9",k:"rw",qs:S9},{n:"Set 10",k:"rw",qs:S10}]},
+{t:"Extra section · Sets 2, 4, 6, 8, 11 and 12",tab:"Extra",i:"Thirty more questions in all five formats. Read the instruction of each set.",sets:[
+{n:"Set 2",k:"mc3",i:"Choose the correct sentence (A, B or C).",qs:S2},
+{n:"Set 4",k:"gap",i:"Complete the transformed sentence with ONE word.",qs:S4},
+{n:"Set 6",k:"mc4",i:"Choose the correct word or phrase.",qs:S6},
+{n:"Set 8",k:"wf",i:"Complete the sentence with the correct form of the word in capitals.",qs:S8},
+{n:"Set 11",k:"rw",i:"Rewrite the sentences using the word in brackets. Rewrite all direct speech as reported speech.",qs:S11},
+{n:"Set 12",k:"rw",i:"Rewrite the sentences using the word in brackets. Rewrite all direct speech as reported speech.",qs:S12}]}];
+const $=s=>document.querySelector(s),app=$("#app"),tabs=$("#tabs"),AT='autocomplete="off" autocapitalize="off" spellcheck="false"',LAST=SEC.length-1;
+const norm=s=>s.toLowerCase().replace(/[’‘]/g,"'").replace(/can't/g,"can not").replace(/won't/g,"will not").replace(/n't/g," not").replace(/'d have/g," would have").replace(/'ve/g," have").replace(/'re/g," are").replace(/[^a-z0-9' ]/g," ").replace(/\s+/g," ").trim();
+const sp=a=>/^[,.;!?]/.test(a)?"":" ";
+const KI={mc3:3,gap:4,mc4:5,wf:5,rw:3};
+function qh(k,q,id,n){const h=`<p><b>${n}.</b> ${q[0]}${k==="rw"?` <span class="base">(${q[4]})</span>`:""}</p>`;
+ if(k==="mc3")return `<div class="q">${h}${q[1].map((o,j)=>`<label class="op"><input type="radio" name="${id}" value="${j}"><b>${"ABC"[j]}.</b> ${o}</label>`).join("")}</div>`;
+ if(k==="mc4")return `<div class="q">${h}<p class="k2">${q[1]} <select data-n="${id}"><option value="">…</option>${q[3].map((o,j)=>`<option value="${j}">${"ABCD"[j]}. ${o}</option>`).join("")}</select>${sp(q[2])}${q[2]}</p></div>`;
+ if(k==="rw")return `<div class="q">${h}<p class="k2"><b>${q[1]}</b> <input type="text" class="wide" data-n="${id}" ${AT}></p></div>`;
+ return `<div class="q">${h}<p class="k2">${q[1]} <input type="text" data-n="${id}" ${AT}>${k==="wf"?`<span class="base">${q[3]}</span>`:""}${sp(q[2])}${q[2]}</p></div>`}
+app.innerHTML=SEC.map((d,p)=>`<section class="card" id="s${p}" hidden><h2>${d.t}</h2><p class="ins">${d.i}</p>${d.sets.map((st,si)=>`<h3>${st.n}</h3>${st.i?`<p class="ins">${st.i}</p>`:""}${st.qs.map((q,qi)=>qh(st.k,q,`${p}_${si}_${qi}`,qi+1)).join("")}`).join("")}<div class="row"><button data-a="sub">Submit</button><button class="sec" data-a="again" hidden>Try again</button></div><div class="fb"></div><div class="nav"><button class="sec" data-a="prev">‹ Previous section</button><button class="sec" data-a="next">Next section ›</button></div></section>`).join("");
+tabs.innerHTML=SEC.map((d,p)=>`<button data-p="${p}">${p===LAST?'<span class="lk">🔒 </span>':""}${p+1} · ${d.tab}<small></small></button>`).join("");
+tabs.children[LAST].disabled=true;
+let cur=0,unlocked=false;const done=SEC.map(()=>false);
+function go(i){cur=i;SEC.forEach((_,p)=>{$("#s"+p).hidden=p!==i;tabs.children[p].classList.toggle("on",p===i)});const s=$("#s"+i);s.querySelector("[data-a=prev]").disabled=i===0;s.querySelector("[data-a=next]").disabled=i===LAST||(i===LAST-1&&!unlocked);scrollTo(0,0)}
+go(0);tabs.style.display="none";app.style.display="none";
+$("#go").onclick=()=>{$("#start").hidden=true;tabs.style.display="";app.style.display="";go(0)};
+tabs.onclick=e=>{const b=e.target.closest("button");if(b&&!b.disabled)go(+b.dataset.p)};
+function ev(k,q,id,sec){const el=sec.querySelector(k==="mc3"?`input[name="${id}"]:checked`:`[data-n="${id}"]`),v=el?el.value:"";
+ if(k==="mc3")return{good:v!==""&&+v===q[2],mine:v===""?"":q[1][+v],full:q[1][q[2]],el};
+ if(k==="mc4")return{good:v!==""&&+v===q[4],mine:v===""?"":q[3][+v],full:q[1]+" "+q[3][q[4]]+sp(q[2])+q[2],el};
+ if(k==="rw")return{good:q[2].map(norm).includes(norm(v)),mine:v.trim(),full:q[1]+" "+q[2][0],el};
+ const a=k==="gap"?q[3]:q[4];return{good:a.map(norm).includes(norm(v)),mine:v.trim(),full:q[1]+" "+a[0]+sp(q[2])+q[2],el}}
+function submit(p){const d=SEC[p],sec=$("#s"+p);let ok=0,tot=0,h="";
+ d.sets.forEach((st,si)=>{h+=`<h3>${st.n}</h3>`;st.qs.forEach((q,qi)=>{const id=`${p}_${si}_${qi}`,r=ev(st.k,q,id,sec);tot++;if(r.good)ok++;
+  if(st.k==="mc3"){sec.querySelectorAll(`input[name="${id}"]`)[q[2]].parentNode.classList.add("ok");if(r.el&&!r.good)r.el.parentNode.classList.add("bad")}else r.el.classList.add(r.good?"ok":"bad");
+  h+=`<div class="it ${r.good?"g":"w"}"><p><b>${qi+1}.</b> ${r.good?"✓":"✗"} ${r.full}</p>${r.good?"":`<p>Your answer: ${r.mine||"no answer"}</p>`}<p class="why">${R[q[KI[st.k]]]}${st.k==="wf"?" "+q[6]:""}</p></div>`})});
+ const fb=sec.querySelector(".fb");fb.innerHTML=`<p class="score">Score: ${ok} / ${tot}</p>`+h;
+ sec.querySelectorAll("input,select").forEach(e=>e.disabled=true);
+ sec.querySelector("[data-a=sub]").hidden=true;sec.querySelector("[data-a=again]").hidden=false;
+ tabs.children[p].querySelector("small").textContent=`${ok}/${tot}`;
+ done[p]=true;
+ if(p<LAST&&!unlocked&&done.slice(0,LAST).every(Boolean)){unlocked=true;tabs.children[LAST].disabled=false;tabs.children[LAST].querySelector(".lk").remove();$("#s"+(LAST-1)).querySelector("[data-a=next]").disabled=false;
+  fb.insertAdjacentHTML("afterbegin",`<div class="it g"><p><b>🎉 Extra section unlocked!</b> You have submitted sections 1 to 5.</p><button data-a="extra">Go to the extra section</button></div>`)}
+ fb.scrollIntoView({behavior:"smooth",block:"start"})}
+function again(p){const sec=$("#s"+p);sec.querySelectorAll(".op,input,select").forEach(e=>{e.classList.remove("ok","bad");if(e.type==="radio")e.checked=false;else if(e.tagName!=="LABEL")e.value="";e.disabled=false});
+ sec.querySelector(".fb").innerHTML="";sec.querySelector("[data-a=sub]").hidden=false;sec.querySelector("[data-a=again]").hidden=true;tabs.children[p].querySelector("small").textContent="";done[p]=false;scrollTo(0,0)}
+app.onclick=e=>{const b=e.target.closest("button");if(!b)return;const a=b.dataset.a;
+ if(a==="sub")submit(cur);else if(a==="again")again(cur);else if(a==="prev")go(cur-1);else if(a==="next")go(cur+1);else if(a==="extra")go(LAST)};
+</script>
+</body>
+</html>
